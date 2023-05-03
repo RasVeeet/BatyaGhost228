@@ -28,6 +28,8 @@ async def process_help_command(message: Message):
 async def send_photo_echo(message: Message):
     await message.reply_photo(message.photo[0].file_id)
 
+@dp.message()
+
 # Этот хэндлер будет срабатывать на любые ваши текстовые сообщения,
 # кроме команд "/start" и "/help"
 
