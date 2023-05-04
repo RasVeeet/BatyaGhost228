@@ -1,8 +1,10 @@
 import random
 
 from aiogram import Bot, Dispatcher
+from aiogram.filters import Command, Text
 from aiogram.types import Message
-from aiogram.filters import Text, Command
+from aiogram.types import (KeyboardButton, Message, ReplyKeyboardMarkup,
+                           ReplyKeyboardRemove)
 
 
 # Вместо BOT TOKEN HERE нужно вставить токен вашего бота,
@@ -12,6 +14,16 @@ BOT_TOKEN: str = '6231595283:AAFg23Zeg8gHZbRRjNt1zgmJBI7RLZDXs0U'
 # Создаем объекты бота и диспетчера
 bot: Bot = Bot(BOT_TOKEN)
 dp: Dispatcher = Dispatcher()
+
+button_1: KeyboardButton = KeyboardButton(text='start')
+button_2: KeyboardButton = KeyboardButton(text='cancel')
+button_3: KeyboardButton = KeyboardButton(text='help')
+button_4: KeyboardButton = KeyboardButton(text='stat')
+
+# Создаем объект клавиатуры, добавляя в него кнопки
+keyboard: ReplyKeyboardMarkup = ReplyKeyboardMarkup(
+                                    keyboard=[[button_1, button_2, button_3, button_4]])
+
 
 # Количество попыток, доступных пользователю в игре
 ATTEMPTS: int = 5
@@ -32,9 +44,9 @@ def get_random_number() -> int:
 # Этот хэндлер будет срабатывать на команду "/start"
 @dp.message(Command(commands=['start']))
 async def process_start_command(message: Message):
-    await message.answer('Привет!\nДавай сыграем в игру "Угадай число"?\n\n'
+    await message.answer(text='Привет!\nДавай сыграем в игру "Угадай число"?\n\n'
                          'Чтобы получить правила игры и список доступных '
-                         'команд - отправьте команду /help')
+                         'команд - отправьте команду /help',reply_markup=keyboard)
 
 
 # Этот хэндлер будет срабатывать на команду "/help"
@@ -44,7 +56,7 @@ async def process_help_command(message: Message):
                          f'а вам нужно его угадать\nУ вас есть {ATTEMPTS} '
                          f'попыток\n\nДоступные команды:\n/help - правила '
                          f'игры и список команд\n/cancel - выйти из игры\n'
-                         f'/jack - расскажет смешной анекдот'
+                         f'/jack - расскажет смешной анекдот\n'
                          f'/stat - посмотреть статистику\n\nДавай сыграем?')
 
 
