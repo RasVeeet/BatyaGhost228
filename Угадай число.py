@@ -15,15 +15,15 @@ BOT_TOKEN: str = '6231595283:AAFg23Zeg8gHZbRRjNt1zgmJBI7RLZDXs0U'
 bot: Bot = Bot(BOT_TOKEN)
 dp: Dispatcher = Dispatcher()
 
-button_1: KeyboardButton = KeyboardButton(text='start')
-button_2: KeyboardButton = KeyboardButton(text='cancel')
-button_3: KeyboardButton = KeyboardButton(text='help')
-button_4: KeyboardButton = KeyboardButton(text='stat')
+button_1: KeyboardButton = KeyboardButton(text='/start')
+button_2: KeyboardButton = KeyboardButton(text='/cancel')
+button_3: KeyboardButton = KeyboardButton(text='/help')
+button_4: KeyboardButton = KeyboardButton(text='/stat')
 
 # Создаем объект клавиатуры, добавляя в него кнопки
 keyboard: ReplyKeyboardMarkup = ReplyKeyboardMarkup(
-                                    keyboard=[[button_1, button_2, button_3, button_4]])
-
+                                    keyboard=[[button_1, button_2, button_3, button_4]],
+                                    resize_keyboard=True)
 
 # Количество попыток, доступных пользователю в игре
 ATTEMPTS: int = 5
