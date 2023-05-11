@@ -44,7 +44,7 @@ def get_random_number() -> int:
 # Этот хэндлер будет срабатывать на команду "/start"
 @dp.message(Command(commands=['start']))
 async def process_start_command(message: Message):
-    await message.answer(text='Привет!\nДавай сыграем в игру "?\n\n'
+    await message.answer(text='Привет!\nДавай сыграем в игру "Угадай число"?\n\n'
                          'Чтобы получить правила игры и список доступных '
                          'команд - отправьте команду /help',reply_markup=keyboard)
 

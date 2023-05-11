@@ -15,10 +15,10 @@ BOT_TOKEN: str = '6231595283:AAFg23Zeg8gHZbRRjNt1zgmJBI7RLZDXs0U'
 bot: Bot = Bot(BOT_TOKEN)
 dp: Dispatcher = Dispatcher()
 
-button_1: KeyboardButton = KeyboardButton(text='Анекдот')
+button_1: KeyboardButton = KeyboardButton(text='Привет')
 button_2: KeyboardButton = KeyboardButton(text='Интересный факт')
-button_3: KeyboardButton = KeyboardButton(text='Помощь')
-
+button_3: KeyboardButton = KeyboardButton(text='Анекдот')
+button_4: KeyboardButton = KeyboardButton(text='Помощь')
 
 # Создаем объект клавиатуры, добавляя в него кнопки
 keyboard: ReplyKeyboardMarkup = ReplyKeyboardMarkup(
@@ -26,7 +26,7 @@ keyboard: ReplyKeyboardMarkup = ReplyKeyboardMarkup(
                                     resize_keyboard=True)
 
 # Этот хэндлер будет срабатывать на команду "/start"
-@dp.message(Command(commands=['Сыграем?']))
+@dp.message(Command(commands=['Привет!']))
 async def process_start_command(message: Message):
     await message.answer(text='Привет!\nХочешь расскажу смешной анекдот или интересный факт "?\n\n'
                          'Чтобы получить список доступных '
@@ -37,5 +37,5 @@ async def process_start_command(message: Message):
         await message.answer(f'Анекдот-рассказывает анекдот'
                              f'Факт-рассказывает интересный факт.\n')
 
-
+ def
 
