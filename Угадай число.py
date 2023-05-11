@@ -15,10 +15,10 @@ BOT_TOKEN: str = '6231595283:AAFg23Zeg8gHZbRRjNt1zgmJBI7RLZDXs0U'
 bot: Bot = Bot(BOT_TOKEN)
 dp: Dispatcher = Dispatcher()
 
-button_1: KeyboardButton = KeyboardButton(text='/start')
-button_2: KeyboardButton = KeyboardButton(text='/cancel')
-button_3: KeyboardButton = KeyboardButton(text='/help')
-button_4: KeyboardButton = KeyboardButton(text='/stat')
+button_1: KeyboardButton = KeyboardButton(text='Анекдот')
+button_2: KeyboardButton = KeyboardButton(text='Сыграем!')
+button_3: KeyboardButton = KeyboardButton(text='Помощь')
+button_4: KeyboardButton = KeyboardButton(text='Статистика')
 
 # Создаем объект клавиатуры, добавляя в него кнопки
 keyboard: ReplyKeyboardMarkup = ReplyKeyboardMarkup(
@@ -44,7 +44,7 @@ def get_random_number() -> int:
 # Этот хэндлер будет срабатывать на команду "/start"
 @dp.message(Command(commands=['start']))
 async def process_start_command(message: Message):
-    await message.answer(text='Привет!\nДавай сыграем в игру "Угадай число"?\n\n'
+    await message.answer(text='Привет!\nДавай сыграем в игру "?\n\n'
                          'Чтобы получить правила игры и список доступных '
                          'команд - отправьте команду /help',reply_markup=keyboard)
 
